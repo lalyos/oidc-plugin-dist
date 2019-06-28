@@ -25,7 +25,7 @@ spec:
         image: alexellis/oidc-plugin-dist:0.1.0
         imagePullPolicy: Always
         securityContext:
-          readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: false
           runAsUser: 10001
         env:
         - name: client_id
