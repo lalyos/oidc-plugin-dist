@@ -12,5 +12,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: odic-plugin
+          serviceName: oidc-plugin
           servicePort: 8080
