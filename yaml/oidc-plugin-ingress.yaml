@@ -1,0 +1,15 @@
+---
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: oidc-plugin
+  namespace: openfaas
+spec:
+  rules:
+  - host: auth.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: odic-plugin
+          servicePort: 8080
