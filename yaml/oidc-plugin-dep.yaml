@@ -22,36 +22,38 @@ spec:
           requests:
             memory: "20Mi"
             cpu: "20m"
-        image: alexellis/oidc-plugin-dist:0.1.0
+        image: alexellis/oidc-plugin-dist:0.2.0
         imagePullPolicy: Always
         securityContext:
           readOnlyRootFilesystem: false
           runAsUser: 10001
         env:
         - name: client_id
-          value: "value"
+          value: "D4DJmNdogNZvCzyuNHppeOsN9foxh9Q8"
         - name: client_secret
-          value: "value"
+          value: "29LKl660CCjivWXscY4Kx_S8VNQZV9zWOIocx8tKNBMOjW-Qz4UhMGtVK8tASDUP"
         - name: cookie_domain
-          value: "value"
+          value: ".myfaas.club"
         - name: base_host
-          value: "value"
+          value: "http://oauth.myfaas.club"
         - name: port
           value: "8080" # leave as default
         - name: authorize_url
-          value: "value"
+          value: "https://alexellis.eu.auth0.com/authorize"
         - name: welcome_page_url
-          value: "value"
+          value: "http://gw.myfaas.club"
         - name: public_key_path
           value: ""  # leave blank if using jwks
         - name: audience
-          value: "value"
+          value: "https://alexellis.eu.auth0.com/api/v2/"
         - name: token_url
-          value: "value"
+          value: "https://alexellis.eu.auth0.com/oauth/token"
         - name: scopes
           value: "openid profile email"
         - name: jwks_url
-          value: "value"
+          value: "https://alexellis.eu.auth0.com/.well-known/jwks.json"
+        - name: insecure_tls
+          value: "false"
         ports:
         - name: http
           containerPort: 8080

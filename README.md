@@ -14,4 +14,14 @@ You can also deploy to Kubernetes using [YAML files](./yaml/)
 
 Then apply with `kubectl apply -f ./yaml/`
 
+## Troubleshooting
+
+### Insecure TLS / self-signed
+
+As of version 0.2.0, you can disable TLS verification by setting: "insecure_tls: true" as an environment variable.
+
+### Get help
+
 For more, see: [Docs: authentication](https://docs.openfaas.com/reference/authentication/)
+
+[Join Slack](https://slack.openfaas.io/), or raise an issue.

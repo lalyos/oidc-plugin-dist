@@ -8,7 +8,7 @@ metadata:
   namespace: openfaas
 spec:
   rules:
-  - host: auth.example.com
+  - host: oauth.myfaas.club
     http:
       paths:
       - backend:
