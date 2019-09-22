@@ -14,6 +14,38 @@ You can also deploy to Kubernetes using [YAML files](./yaml/)
 
 Then apply with `kubectl apply -f ./yaml/`
 
+## Switch gateway authentication url
+
+Once the plugin is deployed, its time to change the gateway configuration, to actually use it.
+If you used the [YAML files](./yaml/) to deploy the oidc-plugin, than you will have a new LoadBalancer type 
+service deployed. So its available inside the cluster at http://oidc-plugin.openfaas:8080/validate
+
+You can patch the gateway deployment, and change the corresponding env variable by:
+```
+kubectl patch -n openfaas deploy/gateway --patch '
+{
+  "spec": {
+    "template": {
+      "spec": {
+        "containers": [
+          {
+            "env": [
+              {
+                "name": "auth_proxy_url",
+                "value": "http://oidc-plugin.openfaas:8080/validate"
+              }
+            ],
+            "name": "gateway"
+          }
+        ]
+      }
+    }
+  }
+}
+'
+```
+
+
 ## Troubleshooting
 
 ### Insecure TLS / self-signed
